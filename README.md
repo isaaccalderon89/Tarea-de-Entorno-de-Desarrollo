@@ -1,142 +1,121 @@
-# Tarea AD-2 JavaDoc y JUnit
+![git](https://it-junior.by/storage/photos/1/blog/GIT_tutorial_for_beginers.png)
+# GIT 
+***
+Git es un sistema de control de versiones diseñado por **Linus Tolvar**. 
 
-A continuacion, voy a mostrar el enuciado pedido en la actividad. 
+### Características más importantes
+1. Gestión distribuida. 
+2. Libre y de código abierto. 
+3. Rápido y pequeño. 
+4. Ramificación sencilla. 
 
-**Requerimiento 1**
-Documentar y hacer las pruebas unitarias de la siguiente clase. 
+## Descarga e instalación
+Lo primero que debemos hacer es decargar **Git** en nuestro ordenador.
+Una vez intalado, con el siguiente comando podemos verificar la instalación y ver la versión de GIT.
 
-            public class Soldado {
-                private boolean estasMuerto; 
-                private int numeroBalas;
-                /*Crear los métodos "get" y "set" de los atributos cuando se vayan a hacer las pruebas y la documentación. Aquí no se han creado porque no apotan nada. */
-                        
-                public boolean puedeDisparar(){
-                        if(this.numeroBalas >0){
-                            return true; 
-                        }
-                        return false;
-                }
-                public void disparar(Soldado sol){
-                    this.numeroBalas--;
-                    sol.estaMuerto = true;
-                }
-            }
-
-Valoración: 5 puntos sobre 10
-
-**Requerimiento 2** 
-Documentar y hacer las pruebas unitarias de la siguiente clase. 
-
-			public class Jugador{
-				private int dorsal;
-				private int numeroTarjetasAmarillas;
-				private int numeroTarjetasRojas;
-			/*Crear los métodos "get" y "set" de los atributos cuando se vayan a hacer las pruebas y la documentación. Aquí no se han creado porque no apotan nada.
-			*/
-				public void ponerDorsal(int dorsal){
-						if(dorsal)>=1 && dorsal <=30){
-								this.dorsal = dorsal;
-						} else{
-								this.dorsal = -1;
-						}
-				}
-			}
-
-Para comenzar vamos a organizar la tarea de la siguiente manera, vamos a crear las clases en [Eclipse](https://www.eclipse.org/downloads/),  vamos a generar la documentacion de la clase **Soldado** y **Jugador** con [JavaDoc](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/javadoc.html), y posteriormente vamos a realizar las pruebas unitarias con [JUnit5](https://junit.org/junit5/).
-
-*** 
-![JavaDoc](https://www.konakart.com/wp-content/uploads/2014/11/javadoc.png) 
-
-## Comenzamos 
-
-* Creamos la clase donde vamos a realizar la tarea :
-
-![Creacion actividad](file:///C:/Users/admin/Desktop/iconografia/Entornos%20de%20desarrollo/javadoc/im1.PNG)
-
-* Creamos la clase :
-* 
-![Clase](file:///C:/Users/admin/Desktop/iconografia/Entornos%20de%20desarrollo/javadoc/im2.PNG)
-
-En este caso, hemos creado  los *constructores y los getters and setters* no los hemos comentado porque el ejercicio no nos lo solicia. 
-Empezamos por comentar la clase. Usamos las siguientes etiquetas: 
-
-* **@author**. Con esta etiqueta estamos indicando el desarrollador de la clase. 
-* **@since**. Se usa prinicpalmente en método, indica desde cuando está creada la clase. 
-* **@version**. Indica la versión de la clase. 
-
-![comentario de la Clase soldado](file:///C:/Users/admin/Desktop/iconografia/Entornos%20de%20desarrollo/javadoc/im3.PNG)    
-
-Seguimos comentando los atributos. He puesto la etiqueta **@return**, no estoy muy seguro de si se puede poner en los atributos, he revisado la documentación y he visto que dice que la etiqueta **@return** no se puede usar en constructores o métodos *"void"*. 
-
-![atributos](file:///C:/Users/admin/Desktop/iconografia/Entornos%20de%20desarrollo/javadoc/im4.PNG)
-
-Pasamos a comentar ahora los métodos que aparecen en el ejercicio. 
-En el primer método hemos hecho una breve descripcion del metodo, hemos utilizado la etiqueta **@return** indicando los valores de retorno y su significado. 
-En el segundo método hemos hecho un resumen también, hemos utilizado la etiqueta **@param** para indicar que parámetros le hemos pasado. En este caso no utilizamos la etiqueta *@return* porque al ser de tipo *void* no devulve nada. 
-
-![metodos](file:///C:/Users/admin/Desktop/iconografia/Entornos%20de%20desarrollo/javadoc/im5.PNG)  
+        git --version
 
 
-Ahora vamos a comentar la siguiente clase que pedía la actividad, la clase **Jugador**.
+## Flujo de trabajo 
 
-Comentamos y tulizamos las mismas etiqueta que en la clase anterior:
-* **@author**. Con esta etiqueta estamos indicando el desarrollador de la clase. 
-* **@since**. Se usa prinicpalmente en método, indica desde cuando está creada la clase. 
-* **@version**. Indica la versión de la clase. 
+Tenemos 3 secciones de trabajo dentro de un proyecto Git, una cuarta en caso de que queramos trabajar de manera colaborativa. 
+* **Directorio de trabajo o WorkSpace**. La capeta que contiene los ficheros con los que vamos a trabajar.
+* **Stage, area de preparación o Index**. Zona intermedia entrel WorkSpace y el repositorio local.
+* **Repositorio local o directorio de Git**. Es donde se almacenan los metadatos y la base de datos de tu proyecto. 
+* **Repositorio remoto**. Donde se persistirá la información de todos los repositorios locales de nuestro proyecto. 
+ 
+## Comandos de configuración inicial
+        git config --global user.name "NOMBRE QUE USAREMOS EN GIT"
+        git config --global user.email "correo@electronico.com"
 
-![clase Jugador](file:///C:/Users/admin/Desktop/iconografia/Entornos%20de%20desarrollo/javadoc/im6.PNG) 
+## Comandos básicos
+        git init / Para crear un repositorio local
+        git status / Para ver el estado de nuestro espacio de trabajo
+        git add nombre_fichero / Para añadir ficheros al stage
+        git add . / Para añadir todos los ficheros al stage
+        git restore --staged nombre_fichero / Para quitar los ficheros del stage 
+        git commit -m "descripcion del commit" / versionar los cambios
+        git log / para ver todo el historial de cambios. Si queremos cerrar
+                    el histórico debemos pulsar la tecla q
+        git diff / para ver los cambios en nuestro repositorio local
+        git restore nombre_fichero / eliminar cambios hechos en el WS
+        git restore . / para eliminar todos los repositorios
+        git checkout mensaje_hash / Para ver a cualquier foto de nuestro poryecto
+        git log --all / para mostrar todos los commits
+        git checkout master / para regresar al último commit de la rama principal
+        git show mensaje_hash / para ver los detalles de los commit 
+        git commit -am "descripción" / unir un "add" y "commit en una sola sentencia". Solo vale para cambios sirve ficheros ya versionados. 
+        
+## Ramas 
+Una **rama o branch**  se crea para ejecutar una nueva línea de desarrollo o versión. Tiene por defecto la rama **main**.
+Las ramas en git son simplemente punteros o referencias que apuntan a un commit. 
 
-Comentamos los atributos, en este caso no hemos puesto ninguna etiqueta por hacerlo algo mas diferente. 
+### Head
+**Head** es una referencia o puntero a la rama donde te encuentras en cada momento, donde este apuntando el head , será **el commit con el que estamos trabajando**.
 
-![atributos](file:///C:/Users/admin/Desktop/iconografia/Entornos%20de%20desarrollo/javadoc/im7.PNG) 
+## Comando para trabajar con ramas
 
-Hemos puesto un comentario multinea en los constructores indicando lo que se puede leer en imagen. 
+        git checkout -b nombre_rama / crea la rama y nos cambia a dicha rama 
+        git branch nombre_rama / crea pero pertenecemos en la actual
+        git branch -d nombre_rama / Para borrar una rama
+        gitk / herramienta visual para poder ver los commit
+        gitk --all / para ver todos los commit 
+        git merge rama_fusionar / fusionar dos ramas de desarrollo paralelo 
+        git tag version / para poder crear estiquetas en los commit
+        git checkout version / para volver a la version que queramos
+        
+![git](https://blog.ida.cl/wp-content/uploads/sites/5/2018/08/Por-que-usamos-git.png)
 
-![constructores](file:///C:/Users/admin/Desktop/iconografia/Entornos%20de%20desarrollo/javadoc/im8.PNG) 
-
-Hemo hecho lo mismo con los *Getters and Setters*.
-
-![Getters and Setters](file:///C:/Users/admin/Desktop/iconografia/Entornos%20de%20desarrollo/javadoc/im9.PNG)
-
-Ahora comentamos los métodos. 
-
-En el primer método utilizamos la etiqueta **@param** y la etiqueta **@author**  para indicar los parámetros y el autor del método. 
-En el segundo utilizamos la etiqueta **@return** para indicar que es lo que devuelve el método. En ambos hemos hecho una breve descripción del método. 
-![métodos jugador ](file:///C:/Users/admin/Desktop/iconografia/Entornos%20de%20desarrollo/javadoc/im10.PNG)
-
-Una vez finalizado el tema de la documentación procedemos a realizar las pruebas unitarias. 
-
+![Javadoc](https://res.infoq.com/presentations/java-evolution-performance/en/slides/sl10.jpg)
+# JavaDoc
 ***
 
-![junit5](https://upload.wikimedia.org/wikipedia/commons/5/59/JUnit_5_Banner.png)  
+JavaDoc es una utilidad de Oracle para la generación de documentación. Es el estándar de la industria para documentar clases Java. 
+
+El objetivo de JavaDoc es el proporcionador información a otro desarrolladores de como utilizar nuestras clases y métodos. Si la documentación está bien hecha, podemos hacer las pruebas unitarias sin necesidad de entender el código. 
+
+El JavaDoc se crea dentro de las clases java y tendrá la siguiente forma:
+        
+        /**
+        * Documentación
+        *
+        * @Anotaciones
+        */
+
+        
+## @Anotaciones en JavaDoc
+
+El Objetivo de las anotaciones es la de enriquecer la documentación. Ma
+
+* **@author**. Nombre del autor. 
+* **@version**. Versión del método o clase. 
+* **@param**. Definición de un parámetro de entrada de un método, es requerido para todos los parámetros del método. 
+* **@return**. Informar de lo que devuelve el método, no se puede usar en métodos constructores o métodos *"void"*. 
+* **@throws**. Excepción lanzada por el método, primero la clase y luego la excepción. 
+* **@see**. Asocia con un elemento externo como un método o cualquier elemento externo en la red. Tembién se puede usar la equita *@link*.
+* **@since**. Usado principalmente para los métodos. Nos dice desde que versión de la clase se encuentra en dicho método. 
+* **@link**. Para crear un hipervinculo sobre el texto dentro del mismo programa. 
+* **@deprecated**. Indica que la clase o el método es antigua y no recomienda su uso
+
+Se puede poner HTML para enriquecer el formato. 
+
+### Documentación de una clase
+
+Son importantes anotaciones como **@author** o **@version**. 
+
+            *poner ejemplo de la tarea. 
 
 
-Pruebas unitarias de lo que pide el ejercicio. 
 
-Lo primero que hacemos es crear una carpeta que llamaremos *test*. 
+### Documentación de un método
 
-![Junit](file:///C:/Users/admin/Desktop/iconografia/Entornos%20de%20desarrollo/javadoc/ju1.PNG) 
+Son importantes las anotaciones **@param** y **@return**. Puede haber varios **@param**, pero como máximo habrá un solo **@return** (y no lo habrá en caso de que el método devuelva **void**). Los setter y los getter normalmente no se comentan. 
 
-Configuramos el *BuildPaht*.
-
-![ju2](file:///C:/Users/admin/Desktop/iconografia/Entornos%20de%20desarrollo/javadoc/ju2.PNG) 
-
-Empezamos haciendo la prueba del metodo **puedeDispara()** de la clase **Soldado**. En este caso vamos a realizar tres pruebas. Si el **numeroBalas** es superior, igual o inferior a 0. Despues, probaremos las clase **estasMuerto()**
-
-![pruebas](file:///C:/Users/admin/Desktop/iconografia/Entornos%20de%20desarrollo/javadoc/ju4.PNG)
-
-Procedemos a realizar las pruebas unitarias de la clase **Jugador**. En este caso, vamos a realizar tres purebas con el dorsal, un número que sea entre 1 y 30, un número mayor de 30 y otro numero por debajo o igual de 1. 
-Al realizar la prueba del número mayor de 30 observamos que nos marca un fallo, por lo que podemos decir que el código no es correcto. 
-
-![fallo](file:///C:/Users/admin/Desktop/iconografia/Entornos%20de%20desarrollo/javadoc/ju5.PNG)
-
-Observamos lo mismo en el caso de meterle un numero inferior a 1. 
-
-![numeromenor](file:///C:/Users/admin/Desktop/iconografia/Entornos%20de%20desarrollo/javadoc/ju6.PNG) 
-
-Vamos haciendo las pruebas con el resto de métodos y ya finalizamos. 
-
-![prubaFinal](file:///C:/Users/admin/Desktop/iconografia/Entornos%20de%20desarrollo/javadoc/ju7.PNG)  
+            *poner ejemplo de la tarea.
 
 
-He hecho un par de moficaciones y vemos que al final las pruebas estan correctas. Pero como verredicto final tendriamos que revisar el código y ver porque no cumple como debería. 
+### Documentación de constructores
+
+No se puede poner la anotación **@return** ya que los constructores no devuelven nada. 
+
+### Generar documentación de manera autómatica (HTML)
