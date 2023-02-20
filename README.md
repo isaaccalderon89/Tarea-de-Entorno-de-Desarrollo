@@ -64,7 +64,7 @@ Las ramas en git son simplemente punteros o referencias que apuntan a un commit.
         git tag version / para poder crear estiquetas en los commit
         git checkout version / para volver a la version que queramos
         
-![git](https://blog.ida.cl/wp-content/uploads/sites/5/2018/08/Por-que-usamos-git.png)
+
 
 ![Javadoc](https://res.infoq.com/presentations/java-evolution-performance/en/slides/sl10.jpg)
 # JavaDoc
