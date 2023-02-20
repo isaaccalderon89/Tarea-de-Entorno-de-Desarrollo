@@ -1,0 +1,32 @@
+package junit5;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import Requerimiento2.Jugador;
+
+class TestJugador {
+
+	@Test
+	public void tieneDorsalIgual() {
+		Jugador jugador = new Jugador();
+		jugador.setDorsal(15);
+		
+		int resultadoEsperado = 15;
+		int resultadoObtenido = jugador.getDorsal();
+		assertEquals(resultadoEsperado, resultadoObtenido);
+	}
+	
+	@Test
+	public void tieneDorsalMayor() {
+		Jugador jugador = new Jugador();
+		jugador.setDorsal(31);
+		
+		int resultadoEsperado = 31;
+		int resultadoObtenido = jugador.getDorsal();
+		assertEquals(resultadoEsperado, resultadoObtenido);
+	}
+
+
+}

@@ -1,0 +1,87 @@
+package entidad;
+
+/**
+ * Clase que encapsula la información de un soldado. Cada soldado tiene un estado en el que indica si esta 
+ * muerto o no, y un número de balas. 
+ * @author Isaac Calderón López
+ * @since 20/02/2023
+ * @version 1.0
+ *
+ */
+public class Soldado {
+	/**
+	 * Este atributo representa el estado del soldado.
+	 * @return Devuelve un booleano, true si esta muerto, false no esta muerto. 
+	 */
+	private boolean estasMuerto;
+	/**
+	 * Este atributo representa el número de balas que tiene el soldado.
+	 * @return devuelve un numero entero indicando la cantidad de balas que tiene. 
+	 */
+	private int numeroBalas;
+	
+	/*
+	 * Constructor con parámetros. 
+	 * Los constructores también se pueden comentar, teniendo en cuenta no devuelven nada 
+	 * por lo que la etiqueta @Return no habría que ponerla. 
+	 * En este caso no los voy a comentar con JavaDoc ya que el ejercicio no lo pedía
+	 */
+	public Soldado(boolean estasMuerto, int numeroBalas) {
+		super();
+		this.estasMuerto = estasMuerto;
+		this.numeroBalas = numeroBalas;
+	}
+
+	//Constructor sin parametros
+	public Soldado() {
+		super();
+	}
+
+	/*
+	 * Los getter and setter generalmente no se comentan. Solo en caso de que haga alguna funcionalidad 
+	 * diferente a la que tienen por defecto. 
+	 */
+	public boolean isEstasMuerto() {
+		return estasMuerto;
+	}
+
+	public void setEstasMuerto(boolean estasMuerto) {
+		this.estasMuerto = estasMuerto;
+	}
+
+	public int getNumeroBalas() {
+		return numeroBalas;
+	}
+
+	public void setNumeroBalas(int numeroBalas) {
+		this.numeroBalas = numeroBalas;
+	} 
+	
+	/**
+	 * Este método indica si el soldado puede disparar, si numeroBalas es superior a 0 puede disparar, en caso de que numeroBalas
+	 * sea igual o inferior a 0 no podrá disparar. 
+	 * 
+	 * @return devuelve un booleano. TRUE en caso de que numeroBalas sea superior a 0, indicando tiene capacidad para disparar,
+	 * FALSE en caso de que numeroBalas sea igual o inferior a 0
+	 * 
+	 */
+	public boolean puedeDisparar() {
+		
+		if (this.numeroBalas > 0) {
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * Este método reduce el numeroBalas en unidades e indica que el soldado al que ha disparado esta muerto. 
+	 * 
+	 * @param sol Soldados al que va a disparar
+	 */
+	public void disparar(Soldado sol) {
+		this.numeroBalas --;
+		sol.estasMuerto= true;
+	}
+	
+
+}

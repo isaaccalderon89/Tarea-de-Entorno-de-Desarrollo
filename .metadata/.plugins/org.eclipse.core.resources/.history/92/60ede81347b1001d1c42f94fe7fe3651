@@ -1,0 +1,24 @@
+package junit5;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+
+import org.junit.jupiter.api.Test;
+
+import Requerimiento1.Soldado;
+
+class TestSoldado {
+	
+	@Test
+	public void testPuedeDispararPositivo() {
+		Soldado soldado = new Soldado();
+		soldado.setNumeroBalas(30);
+		
+		boolean resultadoEsperado = true;
+		boolean resultado = soldado.puedeDisparar();
+		
+		assertEquals(resultadoEsperado, resultado);
+		
+	}
+
+}
